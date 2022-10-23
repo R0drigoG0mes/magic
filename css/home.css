@@ -47,10 +47,11 @@ header{
     background-color: var(--3);
     width: 50%;
     height: 100vh;
-    position: relative;
+    position: absolute;
     text-align: center;
     padding-top: 6.5vh;
     list-style-type: none;
+    z-index: 3;
 }
 
 .icones{
@@ -163,8 +164,6 @@ footer{
     position: relative;
     margin: 15px auto;
     overflow: hidden;
-    background-color: aqua;
-
 }
 
 .next,.prev{
@@ -191,7 +190,7 @@ footer{
     border: 2px solid white;
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
     cursor: pointer;
-    opacity: 70%;
+    opacity: 60%;
     height: 100%;
     width: 100%;
 }

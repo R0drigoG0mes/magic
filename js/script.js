@@ -1,24 +1,20 @@
 const menu = document.querySelector('.icon-menu');
-const porta = document.querySelector('.icon-enter');
 const lista = document.querySelector('.lista-menu');
-const btnNav = document.getElementById('chato');
-const btnNav2 = document.getElementById('chato2');
 const fechar = document.querySelector('.icon-cross');
-const nav = document.querySelector('nav');
 const btnNext = document.querySelector('.next');
 const btnPrev = document.querySelector('.prev');
 const slide_meio = document.querySelector('.meio_s');
 const slide_primeiro = document.querySelector('.primeiro_s');
 const slide_ultimo = document.querySelector('.ultimo_s');
-var contia1 = 3;
-var contia2 = 2;
-var contia3 = 4;
+const texto_slide = document.getElementById('text-meio');
+var string_caminho = slide_meio.src.toString();
 
 menu.addEventListener('click',abriu,false);
 
 function abriu(){
     menu.style.display = 'none';
     lista.style.display = 'inline-block';
+    lista.style.zindex = '10';
 }
 
 fechar.addEventListener('click',fechou)
@@ -28,51 +24,106 @@ function fechou(){
     lista.style.display = 'none';
 }
 
+/* PRÓXIMO E ANTERIOR */
+
+slide_meio.src = `images/1.png`;
+slide_primeiro.src = `images/5.png`;
+slide_ultimo.src = `images/2.png`;
+
+var valor = 1;
+
 btnNext.addEventListener('click',proximo)
 btnPrev.addEventListener('click',anterior)
 
 function proximo() {
-    slide_meio.src = `images/${contia1}.png`;
-    slide_primeiro.src = `images/${contia2}.png`;
-    slide_ultimo.src = `images/${contia3}.png`;
-    contia1++;
-    contia2++;
-    contia3++;
-    if(contia1 == 6){
-        contia1 = 1;
 
+    valor++;
+
+    if(valor == 6){
+        valor = 1;
     }
 
-    if(contia2 == 6){
-        contia2 = 1;
+    soma = valor - 1;
+
+    if(soma == 0){
+        soma = 5;
     }
 
-    if(contia3 == 6){
-        contia3 = 1;
+    soma2 = valor + 1;
+
+    if(soma2 == 6)
+    {
+        soma2 = 1;
     }
 
-    
+    slide_meio.src = `images/${valor}.png`;
+    slide_primeiro.src = `images/${soma}.png`;
+    slide_ultimo.src = `images/${soma2}.png`;
+
+    switch (valor) {
+        case 1:
+          texto_slide.innerHTML = 'Batalhas épicas';
+        break;
+        case 2:
+            texto_slide.innerHTML = 'Personagens incríveis';
+        break;
+        case 3:
+            texto_slide.innerHTML = 'Items raros de suporte';
+        break;
+        case 4:
+            texto_slide.innerHTML = 'Cenários memoráveis';
+        break;
+        case 5:
+            texto_slide.innerHTML = 'Habilidades únicas';
+        break;
+
+        }
+
 }
 
 function anterior() {
-    slide_meio.src = `images/${contia1}.png`;
-    slide_primeiro.src = `images/${contia2}.png`;
-    slide_ultimo.src = `images/${contia3}.png`;
-    contia1--;
-    contia2--;
-    contia3--;
-    if(contia1 == 0){
-        contia1 = 5;
 
+    valor--;
+
+    if(valor == 0){
+        valor = 5;
     }
 
-    if(contia2 == 0){
-        contia2 = 5;
+    soma = valor - 1;
+
+    if(soma == 0)
+    {
+        soma = 5
     }
 
-    if(contia3 == 0){
-        contia3 = 5;
+    soma2 = valor + 1;
+
+    if(soma2 == 6){
+        soma2 = 1;
     }
 
-    
+    slide_meio.src = `images/${valor}.png`;
+    slide_primeiro.src = `images/${soma}.png`;
+    slide_ultimo.src = `images/${soma2}.png`;
+
+    switch (valor) {
+        case 1:
+          texto_slide.innerHTML = 'Batalhas épicas';
+        break;
+        case 2:
+            texto_slide.innerHTML = 'Personagens incríveis';
+        break;
+        case 3:
+            texto_slide.innerHTML = 'Items raros de suporte';
+        break;
+        case 4:
+            texto_slide.innerHTML = 'Cenários memoráveis';
+        break;
+        case 5:
+            texto_slide.innerHTML = 'Habilidades únicas';
+        break;
+
+        }
+
 }
+
