@@ -62,7 +62,7 @@ function proximo() {
 
     switch (valor) {
         case 1:
-          texto_slide.innerHTML = 'Batalhas épicas';
+          texto_slide.innerHTML = 'Batalhas frenéticas';
         break;
         case 2:
             texto_slide.innerHTML = 'Personagens incríveis';
@@ -108,7 +108,7 @@ function anterior() {
 
     switch (valor) {
         case 1:
-          texto_slide.innerHTML = 'Batalhas épicas';
+          texto_slide.innerHTML = 'Batalhas frenéticas';
         break;
         case 2:
             texto_slide.innerHTML = 'Personagens incríveis';
