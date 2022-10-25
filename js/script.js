@@ -13,6 +13,7 @@ const radio3 = document.getElementById('radio-3');
 const radio4 = document.getElementById('radio-4');
 const radio5 = document.getElementById('radio-5');
 
+slide_meio.style.opacity = '60%';
 radio1.style = 'background-color: #0077a6; outline: 1px solid #00f4fd;';
 
 menu.addEventListener('click',abriu,false);

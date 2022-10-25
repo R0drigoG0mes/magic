@@ -21,6 +21,7 @@
 
 }
 
+
 body{
     color: white;
     background-color: var(--5);
@@ -219,7 +220,7 @@ footer{
     border: 2px solid var(--1);
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
     cursor: pointer;
-    opacity: 60%;
+    opacity: 100%;
     height: 100%;
     width: 100%;
 }
@@ -387,15 +388,19 @@ footer{
 }
 
 .texto-logo1{
-    left: 1.3%;
+    left: 20px;
+    font-size: 2em;
 }
 
 .logo{
-    left: 1.7%;
+    left: calc(15px + 2em);
+    width: 50px;
+    height: 70px;
 }
 
 .texto-logo2{
-    left: 2.8%;
+    left: 70px;
+    font-size: 2em;
 }
 
 .slide{
@@ -437,6 +442,18 @@ footer{
 }
 .prev{
     left: 5%;
+}
+
+.login{
+    left: calc(100vw - 130px);
+}
+
+.top-link{
+    font-size: 1.3em;
+}
+
+header{
+    height: 15vh;
 }
 
 }
