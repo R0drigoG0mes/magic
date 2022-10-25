@@ -7,7 +7,13 @@ const slide_meio = document.querySelector('.meio_s');
 const slide_primeiro = document.querySelector('.primeiro_s');
 const slide_ultimo = document.querySelector('.ultimo_s');
 const texto_slide = document.getElementById('text-meio');
-var string_caminho = slide_meio.src.toString();
+const radio1 = document.getElementById('radio-1');
+const radio2 = document.getElementById('radio-2');
+const radio3 = document.getElementById('radio-3');
+const radio4 = document.getElementById('radio-4');
+const radio5 = document.getElementById('radio-5');
+
+radio1.style = 'background-color: #0077a6; outline: 1px solid #00f4fd;';
 
 menu.addEventListener('click',abriu,false);
 
@@ -63,18 +69,43 @@ function proximo() {
     switch (valor) {
         case 1:
           texto_slide.innerHTML = 'Batalhas frenéticas';
+          radio1.style = 'background-color: #0077a6; outline: 1px solid #00f4fd;';
+          radio2.style = 'background-color: #ccc; outline: none;';
+          radio3.style = 'background-color: #ccc; outline: none;';
+          radio4.style = 'background-color: #ccc; outline: none;';
+          radio5.style = 'background-color: #ccc; outline: none;';
         break;
         case 2:
             texto_slide.innerHTML = 'Personagens incríveis';
+            radio1.style = 'background-color: #ccc; outline: none;';
+            radio2.style = 'background-color: #0077a6; outline: 1px solid #00f4fd;';
+            radio3.style = 'background-color: #ccc; outline: none;';
+            radio4.style = 'background-color: #ccc; outline: none;';
+            radio5.style = 'background-color: #ccc; outline: none;';
         break;
         case 3:
             texto_slide.innerHTML = 'Items raros de suporte';
+            radio1.style = 'background-color: #ccc; outline: none;';
+            radio2.style = 'background-color: #ccc; outline: none;';
+            radio3.style = 'background-color: #0077a6; outline: 1px solid #00f4fd;';
+            radio4.style = 'background-color: #ccc; outline: none;';
+            radio5.style = 'background-color: #ccc; outline: none;';
         break;
         case 4:
             texto_slide.innerHTML = 'Cenários memoráveis';
+            radio1.style = 'background-color: #ccc; outline: none;';
+            radio2.style = 'background-color: #ccc; outline: none;';
+            radio3.style = 'background-color: #ccc; outline: none;';
+            radio4.style = 'background-color: #0077a6; outline: 1px solid #00f4fd;';
+            radio5.style = 'background-color: #ccc; outline: none;';
         break;
         case 5:
             texto_slide.innerHTML = 'Habilidades únicas';
+            radio1.style = 'background-color: #ccc; outline: none;';
+            radio2.style = 'background-color: #ccc; outline: none;';
+            radio3.style = 'background-color: #ccc; outline: none;';
+            radio4.style = 'background-color: #ccc; outline: none;';
+            radio5.style = 'background-color: #0077a6; outline: 1px solid #00f4fd;';
         break;
 
         }
@@ -109,18 +140,43 @@ function anterior() {
     switch (valor) {
         case 1:
           texto_slide.innerHTML = 'Batalhas frenéticas';
+          radio1.style = 'background-color: #0077a6; outline: 1px solid #00f4fd;';
+          radio2.style = 'background-color: #ccc; outline: none;';
+          radio3.style = 'background-color: #ccc; outline: none;';
+          radio4.style = 'background-color: #ccc; outline: none;';
+          radio5.style = 'background-color: #ccc; outline: none;';
         break;
         case 2:
             texto_slide.innerHTML = 'Personagens incríveis';
+            radio1.style = 'background-color: #ccc; outline: none;';
+            radio2.style = 'background-color: #0077a6; outline: 1px solid #00f4fd;';
+            radio3.style = 'background-color: #ccc; outline: none;';
+            radio4.style = 'background-color: #ccc; outline: none;';
+            radio5.style = 'background-color: #ccc; outline: none;';
         break;
         case 3:
             texto_slide.innerHTML = 'Items raros de suporte';
+            radio1.style = 'background-color: #ccc; outline: none;';
+            radio2.style = 'background-color: #ccc; outline: none;';
+            radio3.style = 'background-color: #0077a6; outline: 1px solid #00f4fd;';
+            radio4.style = 'background-color: #ccc; outline: none;';
+            radio5.style = 'background-color: #ccc; outline: none;';
         break;
         case 4:
             texto_slide.innerHTML = 'Cenários memoráveis';
+            radio1.style = 'background-color: #ccc; outline: none;';
+            radio2.style = 'background-color: #ccc; outline: none;';
+            radio3.style = 'background-color: #ccc; outline: none;';
+            radio4.style = 'background-color: #0077a6; outline: 1px solid #00f4fd;';
+            radio5.style = 'background-color: #ccc; outline: none;';
         break;
         case 5:
             texto_slide.innerHTML = 'Habilidades únicas';
+            radio1.style = 'background-color: #ccc; outline: none;';
+            radio2.style = 'background-color: #ccc; outline: none;';
+            radio3.style = 'background-color: #ccc; outline: none;';
+            radio4.style = 'background-color: #ccc; outline: none;';
+            radio5.style = 'background-color: #0077a6; outline: 1px solid #00f4fd;';
         break;
 
         }
