@@ -107,6 +107,7 @@ article p{
     text-align: center;
     padding: 40px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-shadow: 1px 1px 2px black;
 }
 
 .main-text{
@@ -122,7 +123,11 @@ article p{
     padding: 2px 12px;
     margin-left: 5px;
     border-radius: 5px;
-    background-color: var(--4);
+    background-color: var(--5);
+}
+
+.btn-apoio:hover{
+    background-color: #5b0365;
 }
 
 .btn-apoio a{
@@ -267,23 +272,25 @@ footer{
     font-family: 'Henny Penny';
     font-size: 1.2em;
     position: absolute;
-    right: 45vw;
-    transform: translateX(-50%);
+    right: 50vw;
+    transform: translateX(-6px);
 }
 
 .texto-logo2{
     font-family: 'Henny Penny';
     font-size: 1.2em;
     position: absolute;
-    right: 42.5vw;
-    transform: translateX(50%);
+    right: 50vw;
+    transform: translateX(42px);
 }
 
 .nome-jogo{
     font-family: 'Henny Penny';
 }
 
-@media only screen and (min-width: 301px) and (max-width: 450px) {
+/* MEDIA FEATURES */
+
+/* @media only screen and (min-width: 301px) and (max-width: 450px) {
     .texto-logo1{
         right: 47vw;
     }
@@ -293,12 +300,37 @@ footer{
     }
 }
 
-@media only screen and (min-width: 451px) and (max-width: 470px) {
+@media only screen and (min-width: 451px) and (max-width: 500px) {
     .texto-logo1{
         right: 47vw;
     }
 
     .texto-logo2{
         right: 44.5vw;
+    }
+} */
+
+
+@media only screen and (min-width: 395px){
+    .text-slide{
+        font-size: 1em;
+    }
+}
+
+@media only screen and (min-width: 439px){
+    .text-slide{
+        font-size: 1.1em;
+    }
+}
+
+@media only screen and (min-width: 483px){
+    .text-slide{
+        font-size: 1.2em;
+    }
+}
+
+@media only screen and (min-width: 527px){
+    .text-slide{
+        font-size: 1.3em;
     }
 }
