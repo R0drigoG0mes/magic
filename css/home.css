@@ -473,4 +473,8 @@ header{
     .top-link{
         font-size: 1.4em;
     }
+
+    .btn-sair{
+        font-size: 0.1em;
+    }
 }

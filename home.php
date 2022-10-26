@@ -12,7 +12,7 @@ if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)
 }
 else{
     $email = $_SESSION['email'];
-    $script = "<script>var logado = 1;</script><script>var email = ".$email.";</script>";
+    $script = "<script>var logado = 1;</script>";
     echo $script;
 }
 
@@ -42,6 +42,7 @@ else{
             <li><a href="" class="top-link hamburguer">Loja &#x1F6D2;</a></li>
             <li><a href="" class="top-link hamburguer">Inventário &#x1F4E6;</a></li>
             <li><a href="" class="top-link hamburguer ultimo">Reportar Bug &#x1F41E;</a></li>
+            <li><a href="" style="color: white; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"><?php print($email);?></a></li>
         </ul>
         <p class="texto-logo1">Mag</p>
         <img src="images/favicon.png" alt="" class="logo">
