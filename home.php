@@ -7,13 +7,15 @@ session_start();
 if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)){
     unset($_SESSION['email']);
     unset($_SESSION['senha']);
-    header('Location: login.php');
+    $script = "<script>var logado = 0</script>";
+    echo $script;
 }
 else{
-    $logado = 'true';
+    $email = $_SESSION['email'];
+    $script = "<script>var logado = 1;</script><script>var email = ".$email.";</script>";
+    echo $script;
 }
 
-$email_logado = $_SESSION['email'];
 ?>
 
 <!DOCTYPE html>

@@ -12,7 +12,7 @@ const radio2 = document.getElementById('radio-2');
 const radio3 = document.getElementById('radio-3');
 const radio4 = document.getElementById('radio-4');
 const radio5 = document.getElementById('radio-5');
-const btnNav = document.getElementById('chato');
+const btnLogin = document.getElementById('chato');
 
 slide_meio.style.opacity = '60%';
 radio1.style = 'background-color: #0077a6; outline: 1px solid #00f4fd;';
@@ -187,16 +187,13 @@ function anterior() {
 
 // REQUISIÇÕES PARA O PHP
 
-var logado = 0;
-
-const ler_dados = async () => {
-    const dados = await fetch("teste.php");
-    const resposta = await dados.text();
-    alert(resposta);
-    // if(resposta.startsWith('true')){
-    //    btnNav.style.display = 'none';
-    //     alert('deu boa');
-    // }
+if(logado == 1){
+    btnLogin.innerHTML = 
+    'Sair<span class="icon-exit" style="font-size: 0.8em;"></span>';
+    btnLogin.href = 'sair.php';
+    menu.style.display = 'inline';
+}
+else{
+    menu.style.display = 'none';
 }
 
-ler_dados();
