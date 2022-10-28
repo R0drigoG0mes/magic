@@ -11,8 +11,9 @@ if(isset($_POST['submit']))
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $mensagem = $_POST['mensagem'];
+    $retrato = rand(1,22);
 
-    $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,data_nascimento,apelido,email,senha,mensagem) VALUES ('$nome','$data_nascimento','$apelido','$email','$senha','mensagem')");
+    $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,data_nascimento,apelido,email,senha,mensagem,retrato) VALUES ('$nome','$data_nascimento','$apelido','$email','$senha','mensagem','retrato')");
     
     header('Location: login.php');
 }

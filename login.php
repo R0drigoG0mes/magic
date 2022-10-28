@@ -8,7 +8,6 @@ if(isset($_POST['submit']) && !empty($_POST['email'] && !empty($_POST['senha']))
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-
     $sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
 
     $result = $conexao -> query($sql);
