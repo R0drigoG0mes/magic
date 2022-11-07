@@ -11,7 +11,53 @@ if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)
     echo $script;
 }
 else{
+
+    include_once('config.php');
+
     $email = $_SESSION['email'];
+
+    //------------- RETRATO ---------------
+
+    $pesquisar_retrato = "SELECT `retrato` FROM `usuarios` WHERE `email` = '$email';";
+
+    $retrato_bruto = $conexao -> query(($pesquisar_retrato));
+
+    $retrato = mysqli_fetch_assoc($retrato_bruto);
+
+    $_SESSION['retrato'] = $retrato['retrato'];
+
+    //----------------- APELIDO -------------------
+
+    $pesquisar_apelido = "SELECT `apelido` FROM `usuarios` WHERE `email` = '$email';";
+
+    $apelido_bruto = $conexao -> query(($pesquisar_apelido));
+
+    $apelido = mysqli_fetch_assoc($apelido_bruto);
+
+    $_SESSION['apelido'] = $apelido['apelido'];    
+    
+    //----------------- NOME -------------------
+
+    $pesquisar_nome = "SELECT `nome` FROM `usuarios` WHERE `email` = '$email';";
+
+    $nome_bruto = $conexao -> query(($pesquisar_nome));
+
+    $nome = mysqli_fetch_assoc($nome_bruto);
+
+    $_SESSION['nome'] = $nome['nome'];    
+    
+    //----------------- NASCIMENTO -------------------
+
+    $pesquisar_nascimento = "SELECT `data_nascimento` FROM `usuarios` WHERE `email` = '$email';";
+
+    $data_bruta = $conexao -> query(($pesquisar_nascimento));
+
+    $nascimento = mysqli_fetch_assoc($data_bruta);
+
+    $_SESSION['data_nascimento'] = $nascimento['data_nascimento'];
+    
+    //--------- COMUNICAR JAVASCRIPT QUE ENTROU -------------
+
     $script = "<script>var logado = 1;</script>";
     echo $script;
 }
@@ -33,6 +79,21 @@ else{
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <script src="js/script.js" defer></script>
     <title>Home | MagíCia</title>
+
+    <style>
+        .perfil-mobile{
+            border-radius: 50%;
+            margin-top: 10px;
+            border: 1.5px solid white;
+        }
+
+        .apelido{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+    </style>
+
 </head>
 <body>
     <header>
@@ -42,14 +103,15 @@ else{
             <li><a href="" class="top-link hamburguer">Loja &#x1F6D2;</a></li>
             <li><a href="" class="top-link hamburguer">Inventário &#x1F4E6;</a></li>
             <li><a href="" class="top-link hamburguer ultimo">Reportar Bug &#x1F41E;</a></li>
-            <li><a href="" style="color: white; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"><?php print($email);?></a></li>
+            <li><a href="perfil.php"><img class="perfil-mobile" src="images/retratos/<?php echo $_SESSION['retrato'];?>.png" alt=""></a></li>
+            <li><a href="perfil.php" class="apelido"><?php echo $_SESSION['apelido']; ?></a></li>
         </ul>
         <p class="texto-logo1">Mag</p>
         <img src="images/favicon.png" alt="" class="logo">
         <p class="texto-logo2">Cia</p>
         <nav>
             <span class="icon-menu icones"></span>
-            <a href="login.html" class="top-link btn-nav login" id="chato">Login<span class="icon-enter"></span></a>
+            <a href="login.html" class="top-link btn-nav login" id="chato">Login<span class="icon-enter" style="font-size: .8em;"></span></a>
         </nav>
     </header>
     <div class="slider">
@@ -113,5 +175,6 @@ else{
             Copyright magícia.io &copy;
         </p>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </body>
 </html>

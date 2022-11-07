@@ -55,6 +55,7 @@ header{
     padding-top: 6.5vh;
     list-style-type: none;
     z-index: 3;
+    overflow-wrap: break-word;
 }
 
 .icones{
@@ -85,14 +86,6 @@ header{
     right: 10px;
     top: 10px;
     font-size: 1.3em;
-}
-
-.icon-exit{
-    font-size: .1em;
-}
-
-.icon-enter{
-    font-size: .8em;
 }
 
 .hamburguer{
@@ -301,6 +294,13 @@ footer{
     display: none;
 }
 
+.icon-exit{
+    font-size: 0.7em;
+    margin-left: 3px;
+}
+
+
+
 /* MEDIA FEATURES */
 
 
@@ -472,9 +472,5 @@ header{
 @media only screen and (min-width: 1000px) {
     .top-link{
         font-size: 1.4em;
-    }
-
-    .btn-sair{
-        font-size: 0.1em;
     }
 }

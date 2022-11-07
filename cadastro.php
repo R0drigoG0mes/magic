@@ -13,9 +13,9 @@ if(isset($_POST['submit']))
     $mensagem = $_POST['mensagem'];
     $retrato = rand(1,22);
 
-    $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,data_nascimento,apelido,email,senha,mensagem,retrato) VALUES ('$nome','$data_nascimento','$apelido','$email','$senha','mensagem','retrato')");
+    $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,data_nascimento,apelido,email,senha,retrato,mensagem) VALUES ('$nome','$data_nascimento','$apelido','$email','$senha','$retrato','$mensagem')");
     
-    header('Location: login.php');
+    header('Location: index.php');
 }
 
 ?>
@@ -40,13 +40,13 @@ if(isset($_POST['submit']))
             <legend class="titulo">Cadastro</legend>
 
             <label for="inome">Nome</label>
-            <input type="text" name="nome" id="inome" autocomplete="name" required placeholder="Nome">
+            <input type="text" name="nome" id="inome" autocomplete="name" required placeholder="Nome" maxlength="40">
 
             <label for="idata">Data de Nascimento</label>
             <input type="date" name="data_nascimento" id="idata" required>
 
             <label for="iapelido">Apelido</label>
-            <input type="text" required placeholder="Apelido" maxlength="100" name="apelido">
+            <input type="text" required placeholder="Apelido" maxlength="20" name="apelido">
 
             <label for="iemail">E-mail</label>
             <input type="email" name="email" id="iemail" autocomplete="email" required placeholder="E-mail">
