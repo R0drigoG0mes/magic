@@ -1,18 +1,44 @@
 <?php
 
 session_start();
+include_once('config.php');
+$email = $_SESSION['email'];
+
+//----------- ANALISAR SE RECEBIMENTO DE MENSAGENS ESTÁ ATIVADO
 
 if($_SESSION['mensagem'] == 1){
     $codigo = '<script>var notifica = 1;</script>';
     echo $codigo;
-}else{
+}
+else if($_SESSION['mensagem'] == 0){
     $codigo = '<script>var notifica = 0;</script>';
     echo $codigo;
 }
 
+//---------------------- ATIVAR OU DESATIVAR O RECEBIMENTO DE MENSAGENS
+
+if(isset($_POST['ativar'])){
+
+    // include_once('config.php');
+
+    $consulta_ativar = "UPDATE `usuarios` SET `mensagem` = 1 WHERE `usuarios`.`nome` = '{$_SESSION['nome']}';";
+
+    $executar_mudança = $conexao -> query($consulta_ativar);
+
+}
+if(isset($_POST['desativar'])){
+
+    // include_once('config.php');
+
+    $consulta_desativar = "UPDATE `usuarios` SET `mensagem` = 0 WHERE `usuarios`.`nome` = '{$_SESSION['nome']}';";
+
+    $executar_mudança2 = $conexao -> query($consulta_desativar);
+
+}
+
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,11 +62,6 @@ if($_SESSION['mensagem'] == 1){
         img{
             border-radius: 50%;
             border: 1.5px solid white;
-        }
-
-        img:hover{
-            cursor: pointer;
-            opacity: 70%;
         }
 
         h1{
@@ -89,13 +110,13 @@ if($_SESSION['mensagem'] == 1){
             color: white;
         }
 
-        .cancelar{
+        .voltar{
             position: absolute;
             bottom: 10px;
             left: 10px;
         }
 
-        .cancelar button{
+        .voltar button{
             cursor: pointer;
             background-color: white;
             color: #0077a6;
@@ -106,11 +127,12 @@ if($_SESSION['mensagem'] == 1){
             font-size: .8em;
         }
 
-        .cancelar span{
-            color:red;
+        .voltar span{
+            text-shadow: none;
+            font-size: .95em;
         }
 
-        .cancelar button:hover{
+        .voltar button:hover{
             background-color: transparent;
             color: white;
         }
@@ -134,23 +156,28 @@ if($_SESSION['mensagem'] == 1){
             font-size: .8em;
         }
 
+        .editar span{
+            text-shadow: none;
+            font-size: .95em;
+        }
+
         .editar button:hover{
             background-color: transparent;
             color: white;
         }
 
         #inotifica{
-            width: 15px;
-            height: 15px;
+            width: 13px;
+            height: 13px;
             outline: 2px solid white;
         }
 
     </style>
 </head>
 <body>
+    <output style="display: none;" id="saida"></output>
     <div class="meio">
         <div>
-            <h1>Alterar Perfil</h1>
             <img src="images/retratos/<?php echo $_SESSION['retrato'];?>.png" alt="">
         </div>
         <div>
@@ -180,19 +207,72 @@ if($_SESSION['mensagem'] == 1){
         </div>
     </div>
 
-    <a href="index.php" class="cancelar"><button>Cancelar<span class="icon-cross"></span></button></a>
+    <a href="index.php" class="voltar"><button>Voltar<span class="icon-redo2"></span></button></a>
 
-    <a href="" class="editar"><button>Editar<span class="icon-pencil"></span></button></a>
+    <a href="editar_perfil.php" class="editar"><button>Editar<span class="icon-pencil"></span></button></a>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
  
     <script>
         const receber_notifica = document.getElementById("inotifica");
+        const output = document.getElementById("saida");
 
-        if(notifica == 1){
-            receber_notifica.checked = true;
+        //---- FALAR PARA O SERVIDOR AS PREFERENCIAS ----
+
+        window.addEventListener("load", preferencias);
+
+        function preferencias(){
+            if(notifica == 1){
+                receber_notifica.checked = true;
+            }
+            else if(notifica == 0){
+                receber_notifica.checked = false;
+            }
         }
-        else
-            {
-            receber_notifica.checked = false;
+
+        receber_notifica.addEventListener("change", mudar_notifica);
+
+        function mudar_notifica(){
+            if(receber_notifica.checked == false){
+
+                var dados = new FormData();
+
+                var nao_notificar = 0;
+
+                dados.append('desativar', nao_notificar);
+
+                $.ajax({
+                url: 'perfil.php',
+                method: 'post',
+                data: dados,
+                processData: false,
+                contentType: false,
+                success: function(resposta){
+                    console.log('O AJAX FOI ENVIADO');
+                }
+                })
+
+            }
+            else if(receber_notifica.checked == true){
+
+                var dados = new FormData();
+
+                var notificar = 1;
+
+                dados.append('ativar', notificar);
+
+                $.ajax({
+                url: 'perfil.php',
+                method: 'post',
+                data: dados,
+                processData: false,
+                contentType: false,
+                success: function(resposta){
+                    console.log('O AJAX FOI ENVIADO');
+                }
+                })
+
+            }
         }
 
     </script>

@@ -55,7 +55,7 @@ else{
     $nascimento = mysqli_fetch_assoc($data_bruta);
 
     $_SESSION['data_nascimento'] = $nascimento['data_nascimento'];
-        
+
     //----------------- NOTIFICAÇÕES -------------------
 
     $pesquisar_notificar = "SELECT `mensagem` FROM `usuarios` WHERE `email` = '$email';";
