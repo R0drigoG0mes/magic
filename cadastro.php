@@ -1,6 +1,6 @@
 <?php
 
-echo '<script>var jaexiste = false;</script>';
+    echo "<script>var jaexiste = false;</script>";
 
 if(isset($_POST['submit']))
 {
@@ -29,15 +29,7 @@ if(isset($_POST['submit']))
         header('Location: index.php');
     }
     else if(mysqli_num_rows($verifica) == 1){
-        $scripto = "<script>
-                            var jaexiste = true;
-                            var nome = ".$_POST['nome'].";
-                            var data_nascimento = ".$_POST['data_nascimento'].";
-                            var apelido = ".$_POST['apelido'].";
-                            var email = ".$_POST['email'].";
-                            var retrato = ".$retrato.";
-                    </script>";
-        echo $scripto;
+        echo "<script>var jaexiste = true;</script>";
     }
 }
 
@@ -69,7 +61,7 @@ if(isset($_POST['submit']))
             <input type="date" name="data_nascimento" id="idata" required>
 
             <label for="iapelido">Apelido</label>
-            <input type="text" required placeholder="Apelido" maxlength="20" name="apelido">
+            <input type="text" required placeholder="Apelido" maxlength="20" name="apelido" id="iapelido">
 
             <label for="iemail">E-mail</label>
             <input type="email" name="email" id="iemail" autocomplete="email" required placeholder="E-mail">
@@ -88,8 +80,12 @@ if(isset($_POST['submit']))
         <p class="recado final">Já tem uma conta?<br><a href="login.html">faça login</a> agora mesmo.</p>
     </form>
     <script>
+        //------------- GUARDAR VALORES DOS INPUT ------------
+
+
         if(jaexiste = true){
-            document.getElementById("inome").value = nome;
+            alert("ja existe uma conta com esse email");
+            jaexiste = false;
         }
     </script>
 </body>
