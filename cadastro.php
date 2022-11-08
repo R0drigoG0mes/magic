@@ -1,5 +1,7 @@
 <?php
 
+echo '<script>var jaexiste = false;</script>';
+
 if(isset($_POST['submit']))
 {
 
@@ -13,9 +15,30 @@ if(isset($_POST['submit']))
     $mensagem = $_POST['mensagem'];
     $retrato = rand(1,22);
 
-    $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,data_nascimento,apelido,email,senha,retrato,mensagem) VALUES ('$nome','$data_nascimento','$apelido','$email','$senha','$retrato','$mensagem')");
+    $sql = "SELECT * FROM usuarios WHERE email = '$email'";
+
+    $verifica = $conexao -> query($sql);
+
+    if(mysqli_num_rows($verifica) !== 1){
+
+        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,data_nascimento,apelido,email,senha,retrato,mensagem) VALUES ('$nome','$data_nascimento','$apelido','$email','$senha','$retrato','$mensagem')");
+
+        $scripto = '<script>var jaexiste = false;</script>';
+        echo $scripto;
     
-    header('Location: index.php');
+        header('Location: index.php');
+    }
+    else if(mysqli_num_rows($verifica) == 1){
+        $scripto = "<script>
+                            var jaexiste = true;
+                            var nome = ".$_POST['nome'].";
+                            var data_nascimento = ".$_POST['data_nascimento'].";
+                            var apelido = ".$_POST['apelido'].";
+                            var email = ".$_POST['email'].";
+                            var retrato = ".$retrato.";
+                    </script>";
+        echo $scripto;
+    }
 }
 
 ?>
@@ -64,5 +87,10 @@ if(isset($_POST['submit']))
         <input type="submit" value="Enviar" name="submit">
         <p class="recado final">Já tem uma conta?<br><a href="login.html">faça login</a> agora mesmo.</p>
     </form>
+    <script>
+        if(jaexiste = true){
+            document.getElementById("inome").value = nome;
+        }
+    </script>
 </body>
 </html>

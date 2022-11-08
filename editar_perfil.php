@@ -36,6 +36,7 @@ $email = $_SESSION['email'];
             border: 1.5px solid white;
             transform: translateX(-50%);
             margin-left: 50%;
+            box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.6);
         }
 
         h1{
@@ -55,49 +56,67 @@ $email = $_SESSION['email'];
             font-family: consolas;
         }
 
-        p{
-            text-shadow: 1px 1px 2px black;
-        }
-
-        .salvar{
-            position: fixed;
-            bottom: 10px;
-            left: 10px;
-        }
-
-        .salvar button{
-            cursor: pointer;
-            background-color: white;
-            color: #0077a6;
-            border: 1px solid white;
-            padding: 10px;
-            border-radius: 30px;
-            font-weight: bolder;
-            font-size: .8em;
-        }
-
-        .salvar span{
-            color:green;
-            font-size: .8em;
-        }
-
-        .salvar button:hover{
-            background-color: transparent;
-            color: white;
-        }
-
         .imagens-container{
             background-color: transparent;
             padding: 10px 5px 10px 5px;
             border-radius: 10px;
             border: 1px solid white;
-            margin-top: 10px;
+            margin: 10px 0px 10px 0px;
             text-align: center;
         }
 
         .imagens-container img{
             border-radius: 50%;
             border: 2px solid white;
+        }
+
+        form{
+            margin: 10px 0px 10px 0px;
+            font-family: consolas;
+        }
+        label{
+            display: block;
+            margin: 5px 0px 5px 0px;
+        }
+        fieldset{
+            border: 1px solid white;
+            border-radius: 10px;
+            box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.6);
+        }
+
+        input{
+            background-color: transparent;
+            border: 1px solid white;
+            color: #fff;
+            padding: 5px;
+            border-radius: 15px;
+        }
+
+        input:focus{
+            outline: none;
+        }
+
+        input[type="text"],input[type="email"]{
+            width: 95%;
+        }
+
+        input[type="submit"]{
+            transform: translateX(-50%);
+            margin: 35px 0px 0px 50%;
+            padding: 5px 25px 5px 25px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        p{
+            text-align: center;
+            font-family: consolas;
+            color: black;
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid black;
         }
     </style>
 </head>
@@ -130,33 +149,41 @@ $email = $_SESSION['email'];
             <img src="images/retratos/21.png" alt="">
             <img src="images/retratos/22.png" alt="">
         </div>
-        <div>
-            <p>
-                <h2>Nome:</h2>
-                <?php echo $_SESSION['nome']; ?>
-            </p>
-            <p>
-                <h2>Apelido:</h2>
-                <?php echo $_SESSION['apelido']; ?>
-            </p>
-            <p>
-                <h2>E-mail:</h2>
-                <?php echo $_SESSION['email']; ?>
-            </p>
-            <p>
-                <h2>Data de Nascimento:</h2>
-                <?php echo $_SESSION['data_nascimento']; ?>
-            </p>
-        </div>
+        <form action="alterar_db.php" method="POST" autocomplete="on">
+            <fieldset>
+                <div>
+                    <label for="inome">Nome:</label>
+                    <input type="text" name="nome" id="inome" value="<?php echo $_SESSION['nome'];?>" maxlength="50" required>
+                </div>
+                <div>
+                    <label for="iapelido">Apelido:</label>
+                    <input type="text" name="apelido" id="iapelido" value="<?php echo $_SESSION['apelido'];?>" maxlength="50" required>
+                </div>
+                <div>
+                    <label for="iemail">Email:</label>
+                    <input type="email" name="email" id="iemail" value="<?php echo $_SESSION['email'];?>" maxlength="150" required>
+                </div>
+                <div>
+                    <label for="idata_nascimento">Data de Nascimento:</label>
+                    <input type="date" name="data_nascimento" id="idata_nascimento" value="<?php echo $_SESSION['data_nascimento'];?>" required>
+                </div>
+                <div  style="display: none;">
+                    <input type="text" name="retrato" id="iretrato">
+                </div>
+                <p>
+                    As alterações serão aplicadas somente no próximo login. 
+                </p>
+                <input type="submit" value="Salvar &#x2714;" name="submit">
+            </fieldset>
+        </form>
     </div>
-
-    <a href="perfil.php" class="salvar"><button>Salvar <span class="icon-checkmark"></span></button></a>
 
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
     <script>
         const imagem_perfil = document.getElementById("imagem_atual");
         const album = document.querySelector('.imagens-container');
+        const retrato_mudar = document.getElementById("iretrato");
 
         var quantia = 0;
 
@@ -175,7 +202,22 @@ $email = $_SESSION['email'];
 
         album.addEventListener("click", function(e){
             if(e.path[0] == '[object HTMLImageElement]'){
-                alert(e.path[0].src);
+
+                var caminho_brutus = e.path[0].src;
+
+                imagem_perfil.src = caminho_brutus;
+
+                pedaço1 = new RegExp('http://localhost/magic/images/retratos/', 'i');
+
+                var caminho_bruto = caminho_brutus.replace(pedaço1, '');
+
+                pedaço2 = new RegExp('.png', 'i');
+
+                var caminho = caminho_bruto.replace(pedaço2, '');
+
+                retrato_mudar.value = caminho;
+
+                revelar_imagens();
             }
         });
 
