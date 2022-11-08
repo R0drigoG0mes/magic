@@ -58,7 +58,7 @@ if(isset($_POST['submit']))
             <input type="password" name="senha" id="isenha" required minlength="8" placeholder="Senha nova" maxlength="150">
 
             <label for="imsg" class="recado">Deseja receber novidades <br> no seu e-mail?</label>
-            <input type="checkbox" name="mensagem" id="imsg">
+            <input type="checkbox" name="mensagem" id="imsg" value="1">
 
         </fieldset>
         <input type="submit" value="Enviar" name="submit">

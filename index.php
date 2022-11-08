@@ -55,6 +55,16 @@ else{
     $nascimento = mysqli_fetch_assoc($data_bruta);
 
     $_SESSION['data_nascimento'] = $nascimento['data_nascimento'];
+        
+    //----------------- NOTIFICAÇÕES -------------------
+
+    $pesquisar_notificar = "SELECT `mensagem` FROM `usuarios` WHERE `email` = '$email';";
+
+    $notificar_bruta = $conexao -> query(($pesquisar_notificar));
+
+    $notificar = mysqli_fetch_assoc($notificar_bruta);
+
+    $_SESSION['mensagem'] = $notificar['mensagem'];
     
     //--------- COMUNICAR JAVASCRIPT QUE ENTROU -------------
 
@@ -91,6 +101,7 @@ else{
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-size: 1.1em;
             font-weight: bold;
+            color: #5b0365;
         }
     </style>
 

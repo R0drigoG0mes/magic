@@ -2,6 +2,14 @@
 
 session_start();
 
+if($_SESSION['mensagem'] == 1){
+    $codigo = '<script>var notifica = 1;</script>';
+    echo $codigo;
+}else{
+    $codigo = '<script>var notifica = 0;</script>';
+    echo $codigo;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,15 +115,15 @@ session_start();
             color: white;
         }
 
-        /* salvar */
+        /* editar */
 
-        .salvar{
+        .editar{
             position: absolute;
             bottom: 10px;
             right: 10px;
         }
 
-        .salvar button{
+        .editar button{
             cursor: pointer;
             background-color: white;
             color: #0077a6;
@@ -126,14 +134,17 @@ session_start();
             font-size: .8em;
         }
 
-        .salvar span{
-            color:green;
-        }
-
-        .salvar button:hover{
+        .editar button:hover{
             background-color: transparent;
             color: white;
         }
+
+        #inotifica{
+            width: 15px;
+            height: 15px;
+            outline: 2px solid white;
+        }
+
     </style>
 </head>
 <body>
@@ -146,22 +157,18 @@ session_start();
             <p>
                 <h2>Nome:</h2>
                 <?php echo $_SESSION['nome']; ?>
-                <span class="icon-pencil" id="lapis-1"></span>
             </p>
             <p>
                 <h2>Apelido:</h2>
                 <?php echo $_SESSION['apelido']; ?>
-                <span class="icon-pencil" id="lapis-2"></span>
             </p>
             <p>
                 <h2>E-mail:</h2>
                 <?php echo $_SESSION['email']; ?>
-                <span class="icon-pencil" id="lapis-3"></span>
             </p>
             <p>
                 <h2>Data de Nascimento:</h2>
                 <?php echo $_SESSION['data_nascimento']; ?>
-                <span class="icon-pencil" id="lapis-4"></span>
             </p>
             <p>
                 <label for="inotifica">Receber Notificações?</label>
@@ -175,44 +182,19 @@ session_start();
 
     <a href="index.php" class="cancelar"><button>Cancelar<span class="icon-cross"></span></button></a>
 
-    <a href="" class="salvar"><button>Salvar<span class="icon-checkmark"></span></button></a>
+    <a href="" class="editar"><button>Editar<span class="icon-pencil"></span></button></a>
  
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script>
-        //---------------- ELEMENTOS ----------------------
-        const lapis_nome = document.getElementById("lapis-1");
-        const lapis_apelido = document.getElementById("lapis-2");
-        const lapis_email = document.getElementById("lapis-3");
-        const lapis_nascimento = document.getElementById("lapis-4");
+        const receber_notifica = document.getElementById("inotifica");
 
-        lapis_nome.addEventListener("click", renomear);
-
-        function renomear(){
-            alert('peidou');
+        if(notifica == 1){
+            receber_notifica.checked = true;
+        }
+        else
+            {
+            receber_notifica.checked = false;
         }
 
-        
-        lapis_apelido.addEventListener("click", reapelidar);
-
-        function reapelidar(){
-            alert('peidou');
-        }
-
-        
-        lapis_email.addEventListener("click", mudar_email);
-
-        function mudar_email(){
-            alert('peidou');
-        }
-
-        
-        lapis_nascimento.addEventListener("click", datar);
-
-        function datar(){
-            alert('peidou');
-        }
-
-        
     </script>
 </body>
 </html>
