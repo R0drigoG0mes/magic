@@ -1,9 +1,12 @@
 <?php
 
-    echo "<script>var jaexiste = false;</script>";
+echo "<script>var jaexiste = false;</script>";
 
 if(isset($_POST['submit']))
 {
+    if(!isset($_POST['mensagem'])){
+        $_POST['mensagem'] = 0;
+    }
 
     include_once('config.php');
 
@@ -46,9 +49,47 @@ if(isset($_POST['submit']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/cadastro.css">
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="icones/style.css">
+    <link rel="stylesheet" href="icones/outros_icones/style.css">
     <title>Cadastro | MagíCia</title>
 </head>
+<style>
+    .aviso{
+        background-color: red;
+        color: white;
+        border-radius: 0px 0px 10px 10px;
+        position: absolute;
+        top: -56px;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+        padding: 10px;
+    }
+
+    .email-existe{
+        animation: surgir 1s forwards linear;
+    }
+
+    @keyframes surgir {
+        from{
+            top: -56px;
+        }
+        to{
+            top:0px;
+        }
+        
+    }
+
+    .icon-cross{
+        font-size: 0.7em;
+        font-weight: lighter;
+        position: absolute;
+        right: 10px;
+        bottom: 4px;
+    }
+</style>
 <body>
+    <div style="display: none;" id="aviso_pai"><p class="aviso">Já existe uma conta ativa com esse e-mail, use outro! <span class="icon-cross" id="fechar-aviso"></span></p></div>
     <form action="cadastro.php" autocomplete="on" method="POST">
         <img src="images/favicon.png" alt="">
         <fieldset>
@@ -80,12 +121,21 @@ if(isset($_POST['submit']))
         <p class="recado final">Já tem uma conta?<br><a href="login.html">faça login</a> agora mesmo.</p>
     </form>
     <script>
-        //------------- GUARDAR VALORES DOS INPUT ------------
+        const div_aviso = document.getElementById("aviso_pai");
+        const aviso = document.querySelector('.aviso');
+        const fechar_aviso = document.getElementById("fechar-aviso");
 
-
-        if(jaexiste = true){
-            alert("ja existe uma conta com esse email");
+        if(jaexiste == true){
+            aviso.classList.remove('email-existe');
+            div_aviso.style.display = 'block';
+            aviso.classList.add('email-existe');
             jaexiste = false;
+        }
+
+        fechar_aviso.addEventListener("click", fecha_aviso_men);
+
+        function fecha_aviso_men(){
+            div_aviso.style.display = 'none';
         }
     </script>
 </body>
