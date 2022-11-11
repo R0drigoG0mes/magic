@@ -1,6 +1,7 @@
 <?php
 
-echo "<script>var jaexiste = false;</script>";
+$jaexiste = false;
+$senha_errada = false;
 
 if(isset($_POST['submit']))
 {
@@ -10,6 +11,7 @@ if(isset($_POST['submit']))
 
     include_once('config.php');
 
+    $sandbox = $_POST['sandbox'];
     $nome = $_POST['nome'];
     $data_nascimento = $_POST['data_nascimento'];
     $apelido = $_POST['apelido'];
@@ -22,7 +24,7 @@ if(isset($_POST['submit']))
 
     $verifica = $conexao -> query($sql);
 
-    if(mysqli_num_rows($verifica) !== 1){
+    if(mysqli_num_rows($verifica) !== 1 && $sandbox == $senha){
 
         $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,data_nascimento,apelido,email,senha,retrato,mensagem) VALUES ('$nome','$data_nascimento','$apelido','$email','$senha','$retrato','$mensagem')");
 
@@ -32,7 +34,11 @@ if(isset($_POST['submit']))
         header('Location: index.php');
     }
     else if(mysqli_num_rows($verifica) == 1){
-        echo "<script>var jaexiste = true;</script>";
+        $jaexiste = true;
+    }
+    elseif($sandbox == $senha)
+    {
+        $senha_errada = true;
     }
 }
 
@@ -54,7 +60,7 @@ if(isset($_POST['submit']))
     <title>Cadastro | MagíCia</title>
 </head>
 <style>
-    .aviso{
+    .aviso, .aviso-pass{
         background-color: red;
         color: white;
         border-radius: 0px 0px 10px 10px;
@@ -89,7 +95,10 @@ if(isset($_POST['submit']))
     }
 </style>
 <body>
+    <div style="display: none;" id="aviso_senha"><p class="aviso-pass">A senha e o campo de confirmar senha não estavam iguais! <span class="icon-cross" id="fechar-aviso-senha"></span></p></div>
+
     <div style="display: none;" id="aviso_pai"><p class="aviso">Já existe uma conta ativa com esse e-mail, use outro! <span class="icon-cross" id="fechar-aviso"></span></p></div>
+
     <form action="cadastro.php" autocomplete="on" method="POST">
         <img src="images/favicon.png" alt="">
         <fieldset>
@@ -108,7 +117,7 @@ if(isset($_POST['submit']))
             <input type="email" name="email" id="iemail" autocomplete="email" required placeholder="E-mail">
 
             <label for="isandboxpasss">Senha</label>
-            <input type="password" name="" id="isandboxpasss" required minlength="8" placeholder="Senha">
+            <input type="password" name="sandbox" id="isandboxpasss" required minlength="8" placeholder="Senha" maxlength="150">
 
             <label for="isenha">Confirmar senha</label>
             <input type="password" name="senha" id="isenha" required minlength="8" placeholder="Senha nova" maxlength="150">
@@ -121,9 +130,16 @@ if(isset($_POST['submit']))
         <p class="recado final">Já tem uma conta?<br><a href="login.html">faça login</a> agora mesmo.</p>
     </form>
     <script>
+
+        var jaexiste = <?php echo $jaexiste;?>;
+        var senha_errada = <?php echo $senha_errada;?>;
+
         const div_aviso = document.getElementById("aviso_pai");
+        const div_aviso_senha = document.getElementById("aviso_senha");
         const aviso = document.querySelector('.aviso');
+        const aviso_senha = document.querySelector('.aviso-pass');
         const fechar_aviso = document.getElementById("fechar-aviso");
+        const fechar_aviso_senha = document.getElementById("fechar-aviso-senha");
 
         if(jaexiste == true){
             aviso.classList.remove('email-existe');
@@ -136,6 +152,21 @@ if(isset($_POST['submit']))
 
         function fecha_aviso_men(){
             div_aviso.style.display = 'none';
+        }
+
+        //---------- CONFIRMAR SENHA ---------------
+
+        if(senha_errada == true){
+            aviso_senha.classList.remove('email-existe');
+            div_aviso_senha.style.display = 'block';
+            aviso_senha.classList.add('email-existe');
+            senha_errada = false;
+        }
+
+        fechar_aviso_senha.addEventListener("click", fecha_aviso_senhaa);
+
+        function fecha_aviso_senhaa(){
+            div_aviso_senha.style.display = 'none';
         }
     </script>
 </body>
