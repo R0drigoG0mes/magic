@@ -108,6 +108,12 @@ else{
 </head>
 <body>
     <header>
+        <ul class="lista-menu-desktop" id="desktopi">
+            <li><div class="relativa"><a href="perfil.php" class="email_atual"><?php echo $_SESSION['email']; ?></a><a href="perfil.php"><img class="nmobile" src="images/retratos/<?php echo $_SESSION['retrato'];?>.png" alt=""></a></div></li>
+            <li class="outros-btns"><a href="">Jogar &#x1F3AE;</a></li>
+            <li class="outros-btns"><a href="">Loja &#x1F6D2;</a></li>
+            <li class="outros-btns"><a href="">Inventário &#x1F4E6;</a></li>
+        </ul>
         <ul class="lista-menu">
             <span class="icon-cross icones"></span>
             <li><a href="" class="top-link hamburguer">Jogar &#x1F3AE;</a></li>

@@ -14,6 +14,7 @@ const radio4 = document.getElementById('radio-4');
 const radio5 = document.getElementById('radio-5');
 const btnLogin = document.getElementById('chato');
 const email = document.getElementById('email-texto');
+const menu_desktopi = document.getElementById("desktopi");
 
 
 slide_meio.style.opacity = '60%';

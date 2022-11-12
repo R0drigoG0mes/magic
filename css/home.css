@@ -385,10 +385,62 @@ footer{
     }
 }
 
-@media only screen and  (min-width: 751px) /*and (max-width: 750px)*/{
+@media only screen and  (min-width: 751px) and (max-width: 999px){
 
 .icon-menu{
     display: none!important;
+}
+
+.relativa{
+    position: relative;
+    width: 150px;
+    height: 100%;
+}
+
+.lista-menu-desktop{
+    position: absolute;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15;
+    list-style-type: none;
+    height: 10vw;
+    width: 60vw;
+    padding: 3px;
+}
+
+.lista-menu-desktop li{
+    float: right;
+    display: inline;
+    margin: 0px 5px 0px 5px;
+}
+
+.lista-menu-desktop li a{
+    text-decoration: none;
+    color: white;
+}
+
+.outros-btns{
+    transform: translateY(100%);
+}
+
+.email_atual{
+    font-size: .8em;
+    font-family: consolas;
+    font-weight: bold;
+    position: absolute;
+    bottom: 0px;
+}
+
+.nmobile{
+    border-radius: 50%;
+    border: 1.5px solid white;
+    position: absolute;
+    height: 42px;
+    width: 42px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .texto-logo1{
@@ -469,8 +521,91 @@ header{
 
 }
 
-@media only screen and (min-width: 1000px) {
-    .top-link{
-        font-size: 1.4em;
-    }
+@media only screen and (min-width: 1000px){
+
+.top-link{
+    font-size: 1.4em;
+}
+
+.icon-menu{
+    display: none!important;
+}
+
+
+.texto-logo1{
+    left: 20px;
+    font-size: 2em;
+}
+
+.logo{
+    left: calc(15px + 2em);
+    width: 50px;
+    height: 70px;
+}
+
+.texto-logo2{
+    left: 70px;
+    font-size: 2em;
+}
+
+.slide{
+    height: 90%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+}
+
+.primeiro{
+    margin-left: 0;
+    width: 30%;
+}
+
+.segundo{
+    width: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+}
+
+.terceiro{
+    margin-right: 0;
+    width: 30%;
+    right: 0;
+}
+
+.text-slide{
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.slider{
+    height: 60vh;
+}
+
+.next{
+    right: 5%;
+}
+.prev{
+    left: 5%;
+}
+
+.login{
+    left: calc(100vw - 130px);
+}
+
+.top-link{
+    font-size: 1.3em;
+}
+
+header{
+    height: 15vh;
+}
+
+.next{
+    right: 17%;
+}
+.prev{
+    left: 17%;
+}
+
 }

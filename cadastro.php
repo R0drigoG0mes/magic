@@ -1,7 +1,7 @@
 <?php
 
-$jaexiste = false;
-$senha_errada = false;
+echo "<script>var jaexiste = false;</script>";
+$senha_errada = 0;
 
 if(isset($_POST['submit']))
 {
@@ -34,11 +34,11 @@ if(isset($_POST['submit']))
         header('Location: index.php');
     }
     else if(mysqli_num_rows($verifica) == 1){
-        $jaexiste = true;
+        echo "<script>var jaexiste = true;</script>";
     }
-    elseif($sandbox == $senha)
+    elseif($sandbox !== $senha)
     {
-        $senha_errada = true;
+        $senha_errada = 1;
     }
 }
 
@@ -95,6 +95,7 @@ if(isset($_POST['submit']))
     }
 </style>
 <body>
+    <output id="saida" style="display: none;"><?php echo $senha_errada; ?></output>
     <div style="display: none;" id="aviso_senha"><p class="aviso-pass">A senha e o campo de confirmar senha não estavam iguais! <span class="icon-cross" id="fechar-aviso-senha"></span></p></div>
 
     <div style="display: none;" id="aviso_pai"><p class="aviso">Já existe uma conta ativa com esse e-mail, use outro! <span class="icon-cross" id="fechar-aviso"></span></p></div>
@@ -131,15 +132,13 @@ if(isset($_POST['submit']))
     </form>
     <script>
 
-        var jaexiste = <?php echo $jaexiste;?>;
-        var senha_errada = <?php echo $senha_errada;?>;
-
         const div_aviso = document.getElementById("aviso_pai");
         const div_aviso_senha = document.getElementById("aviso_senha");
         const aviso = document.querySelector('.aviso');
         const aviso_senha = document.querySelector('.aviso-pass');
         const fechar_aviso = document.getElementById("fechar-aviso");
         const fechar_aviso_senha = document.getElementById("fechar-aviso-senha");
+        const output = document.getElementById("saida");
 
         if(jaexiste == true){
             aviso.classList.remove('email-existe');
@@ -156,11 +155,11 @@ if(isset($_POST['submit']))
 
         //---------- CONFIRMAR SENHA ---------------
 
-        if(senha_errada == true){
+        if(output.innerHTML == 1){
             aviso_senha.classList.remove('email-existe');
             div_aviso_senha.style.display = 'block';
             aviso_senha.classList.add('email-existe');
-            senha_errada = false;
+            output.innerHTML = 0;
         }
 
         fechar_aviso_senha.addEventListener("click", fecha_aviso_senhaa);
