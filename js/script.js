@@ -191,11 +191,21 @@ function anterior() {
 // REQUISIÇÕES PARA O PHP
 
 if(logado == 1){
-    btnLogin.innerHTML ='Sair<span class="icon-exit"></span>';
+    if(window.screen.width >= 200 && window.screen.width < 751){
+        btnLogin.innerHTML ='Sair<span class="icon-exit"></span>';
+        menu.style.display = 'inline';
+        menu_desktopi.style.display = 'none';
+    }
+    if(window.screen.width >= 751){
+        btnLogin.innerHTML ='<span class="icon-exit"></span>';
+        btnLogin.style.left = 'calc(100vw - 50px)';
+        menu.style.display = 'none';
+        menu_desktopi.style.display = 'inline-block';
+    }
     btnLogin.href = 'sair.php';
-    menu.style.display = 'inline';
 }
 else{
     menu.style.display = 'none';
+    menu_desktopi.style.display = 'none';
 }
 

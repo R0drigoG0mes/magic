@@ -5,6 +5,6 @@ unset($_SESSION['email']);
 unset($_SESSION['senha']);
 unset($_SESSION['retrato']);
 session_unset();
-header('Location: login.html');
+header('Location: login_estrutura.php');
 
 ?>

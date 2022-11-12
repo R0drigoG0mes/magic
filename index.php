@@ -109,10 +109,10 @@ else{
 <body>
     <header>
         <ul class="lista-menu-desktop" id="desktopi">
-            <li><div class="relativa"><a href="perfil.php" class="email_atual"><?php echo $_SESSION['email']; ?></a><a href="perfil.php"><img class="nmobile" src="images/retratos/<?php echo $_SESSION['retrato'];?>.png" alt=""></a></div></li>
             <li class="outros-btns"><a href="">Jogar &#x1F3AE;</a></li>
             <li class="outros-btns"><a href="">Loja &#x1F6D2;</a></li>
             <li class="outros-btns"><a href="">Inventário &#x1F4E6;</a></li>
+            <li><a href="perfil.php" class="email_atual"><?php echo $_SESSION['email']; ?></a><a href="perfil.php"><img class="nmobile" src="images/retratos/<?php echo $_SESSION['retrato'];?>.png" alt=""></a></li>
         </ul>
         <ul class="lista-menu">
             <span class="icon-cross icones"></span>
@@ -128,7 +128,7 @@ else{
         <p class="texto-logo2">Cia</p>
         <nav>
             <span class="icon-menu icones"></span>
-            <a href="login.html" class="top-link btn-nav login" id="chato">Login<span class="icon-enter" style="font-size: .8em;"></span></a>
+            <a href="login_estrutura.php" class="top-link btn-nav login" id="chato">Login<span class="icon-enter" style="font-size: .8em;"></span></a>
         </nav>
     </header>
     <div class="slider">

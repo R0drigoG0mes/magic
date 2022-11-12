@@ -128,7 +128,7 @@ if(isset($_POST['submit']))
 
         </fieldset>
         <input type="submit" value="Enviar" name="submit">
-        <p class="recado final">Já tem uma conta?<br><a href="login.html">faça login</a> agora mesmo.</p>
+        <p class="recado final">Já tem uma conta?<br><a href="login_estrutura.php">faça login</a> agora mesmo.</p>
     </form>
     <script>
 

@@ -391,17 +391,12 @@ footer{
     display: none!important;
 }
 
-.relativa{
-    position: relative;
-    width: 150px;
-    height: 100%;
-}
+/* NAV BAR  */
 
 .lista-menu-desktop{
     position: absolute;
     display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 30%;
     z-index: 15;
     list-style-type: none;
     height: 10vw;
@@ -410,9 +405,8 @@ footer{
 }
 
 .lista-menu-desktop li{
-    float: right;
+    float: left;
     display: inline;
-    margin: 0px 5px 0px 5px;
 }
 
 .lista-menu-desktop li a{
@@ -421,15 +415,25 @@ footer{
 }
 
 .outros-btns{
-    transform: translateY(100%);
+    transform: translate(-10%,50%);
+    margin: 0px 20px 0px 0px;
+    border: 1px solid var(--1);
+    padding: 5px;
+    background-color: var(--4);
+    border-radius: 15px;
 }
+
+
 
 .email_atual{
     font-size: .8em;
     font-family: consolas;
     font-weight: bold;
     position: absolute;
-    bottom: 0px;
+    top: 55px;
+    width: 125px;
+    left: calc(100vw - 47.5vw);
+    overflow: hidden;
 }
 
 .nmobile{
@@ -438,10 +442,12 @@ footer{
     position: absolute;
     height: 42px;
     width: 42px;
-    left: 50%;
-    top: 50%;
+    left: calc(100vw - 40.5vw);
+    top: 30px;
     transform: translate(-50%, -50%);
 }
+
+/* NAV BAR FIM */
 
 .texto-logo1{
     left: 20px;
@@ -505,7 +511,7 @@ footer{
 }
 
 .top-link{
-    font-size: 1.3em;
+    font-size: 1.7em;
 }
 
 header{
@@ -523,8 +529,66 @@ header{
 
 @media only screen and (min-width: 1000px){
 
+/* NAV BAR  */
+
+.lista-menu-desktop{
+    position: absolute;
+    display: inline-block;
+    left: 30%;
+    z-index: 15;
+    list-style-type: none;
+    height: 10vw;
+    width: 60vw;
+    padding: 3px;
+}
+
+.lista-menu-desktop li{
+    float: left;
+    display: inline;
+}
+
+.lista-menu-desktop li a{
+    text-decoration: none;
+    color: white;
+}
+
+.outros-btns{
+    transform: translateY(50%);
+    margin: 0px 20px 0px 20px;
+    border: 1px solid var(--1);
+    padding: 5px;
+    background-color: var(--4);
+    border-radius: 15px;
+}
+
+
+
+.email_atual{
+    font-size: .8em;
+    font-family: consolas;
+    font-weight: bold;
+    position: absolute;
+    top: 55px;
+    width: 125px;
+    left: calc(100vw - 47.5vw);
+    overflow: hidden;
+}
+
+.nmobile{
+    border-radius: 50%;
+    border: 1.5px solid white;
+    position: absolute;
+    height: 42px;
+    width: 42px;
+    left: calc(100vw - 42.5vw);
+    top: 30px;
+    transform: translate(-50%, -50%);
+}
+
+/* NAV BAR FIM */
+
 .top-link{
-    font-size: 1.4em;
+    font-size: 1.7em;
 }
 
 .icon-menu{
@@ -594,7 +658,7 @@ header{
 }
 
 .top-link{
-    font-size: 1.3em;
+    font-size: 1.7em;
 }
 
 header{

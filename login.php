@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+$conta_inexistente = 0;
 
 if(isset($_POST['submit']) && !empty($_POST['email'] && !empty($_POST['senha'])))
 {
@@ -17,16 +18,14 @@ if(isset($_POST['submit']) && !empty($_POST['email'] && !empty($_POST['senha']))
     if(mysqli_num_rows($result) < 1){
         unset($_SESSION['email']);
         unset($_SESSION['senha']);
-        header('Location: login.php');
+        $conta_inexistente = 1;
+        header('Location: login_estrutura.php');
     }
     else{
         $_SESSION['email'] = $email;
         $_SESSION['senha'] = $senha;
         header('Location: index.php');
     }
-}
-else{
-    header('Location: login.php');
 }
 
 ?>

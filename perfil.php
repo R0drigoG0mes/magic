@@ -172,6 +172,26 @@ if(isset($_POST['desativar'])){
             outline: 2px solid white;
         }
 
+        @media only screen and  (min-width: 751px){
+            .voltar{
+                left: 30vw;
+                bottom: 30px;
+            }
+
+            .editar{
+                bottom: 30px;
+                right: 30vw;
+            }
+
+            .meio{
+                display: inline-block;
+                margin-top: 30px;
+                border: 1px solid white;
+                padding: 10px;
+                border-radius: 15px;
+            }
+        }
+
     </style>
 </head>
 <body>
