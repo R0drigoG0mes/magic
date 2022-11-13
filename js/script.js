@@ -15,6 +15,7 @@ const radio5 = document.getElementById('radio-5');
 const btnLogin = document.getElementById('chato');
 const email = document.getElementById('email-texto');
 const menu_desktopi = document.getElementById("desktopi");
+const deslogar = document.querySelector('.icon-exit');
 
 
 slide_meio.style.opacity = '60%';
@@ -198,7 +199,7 @@ if(logado == 1){
     }
     if(window.screen.width >= 751){
         btnLogin.innerHTML ='<span class="icon-exit"></span>';
-        btnLogin.style.left = 'calc(100vw - 50px)';
+        btnLogin.style.left = '95vw';
         menu.style.display = 'none';
         menu_desktopi.style.display = 'inline-block';
     }

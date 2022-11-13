@@ -511,7 +511,7 @@ footer{
 }
 
 .top-link{
-    font-size: 1.7em;
+    font-size: 1.2em;
 }
 
 header{
@@ -525,9 +525,17 @@ header{
     left: 17%;
 }
 
+.icon-exit{
+    font-size: 1.3em;
+}
+
 }
 
 @media only screen and (min-width: 1000px){
+
+.icon-exit{
+    font-size: 1.3em;
+}
 
 /* NAV BAR  */
 
@@ -568,7 +576,7 @@ header{
     font-family: consolas;
     font-weight: bold;
     position: absolute;
-    top: 55px;
+    top: 65px;
     width: 125px;
     left: calc(100vw - 47.5vw);
     overflow: hidden;
@@ -581,14 +589,14 @@ header{
     height: 42px;
     width: 42px;
     left: calc(100vw - 42.5vw);
-    top: 30px;
+    top: 40px;
     transform: translate(-50%, -50%);
 }
 
 /* NAV BAR FIM */
 
 .top-link{
-    font-size: 1.7em;
+    font-size: 1.2em;
 }
 
 .icon-menu{
@@ -655,10 +663,6 @@ header{
 
 .login{
     left: calc(100vw - 130px);
-}
-
-.top-link{
-    font-size: 1.7em;
 }
 
 header{
