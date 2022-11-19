@@ -19,9 +19,30 @@
 
 }
 
+@media only screen and (min-width: 300px){
+
+.imagem-desktop{
+    display: none;
+}
+
+.email_atual{
+    display: none;
+}
+
+}
+
 @media only screen and (min-width: 395px){
+
     .text-slide{
         font-size: 1em;
+    }
+
+    .imagem-desktop{
+        display: none;
+    }
+
+    .email_atual{
+        display: none;
     }
 }
 
@@ -29,11 +50,27 @@
     .text-slide{
         font-size: 1.1em;
     }
+
+    .imagem-desktop{
+        display: none;
+    }
+
+    .email_atual{
+        display: none;
+    }
 }
 
 @media only screen and (min-width: 483px){
     .text-slide{
         font-size: 1.2em;
+    }
+
+    .imagem-desktop{
+        display: none;
+    }
+
+    .email_atual{
+        display: none;
     }
 }
 
@@ -41,9 +78,26 @@
     .text-slide{
         font-size: 1.3em;
     }
+
+    .imagem-desktop{
+        display: none;
+    }
+
+    .email_atual{
+        display: none;
+    }
 }
 
 @media only screen and  (min-width: 512px) and (max-width: 750px){
+
+    .email_atual{
+        display: none;
+    }
+
+    .imagem-desktop{
+        display: none;
+    }
+
     .primeiro,.terceiro{
         display: none;
     }
@@ -109,14 +163,17 @@
 /* NAV BAR  */
 
 .lista-menu-desktop{
-    position: absolute;
-    display: inline-block;
-    left: 30%;
-    z-index: 15;
+    display: block;
+    width: 100vw;
     list-style-type: none;
-    height: 10vw;
-    width: 60vw;
-    padding: 3px;
+    background-color: var(--4);
+    padding: 0px 5px;
+    border-top: 2px solid var(--2);
+    border-bottom: 2px solid var(--2);
+}
+
+.meiuca{
+    margin: 0px 30px;
 }
 
 .lista-menu-desktop li{
@@ -130,36 +187,35 @@
 }
 
 .outros-btns{
-    transform: translate(-10%,50%);
-    margin: 0px 20px 0px 0px;
-    border: 1px solid var(--1);
-    padding: 5px;
+    padding: 10px 10px 10px 10px;
     background-color: var(--4);
-    border-radius: 15px;
 }
 
 
+.imagem_atual{
+    position: absolute;
+    left: 85vw;
+    top: 7px;
+}
+
+.imagem_atual img{
+    border-radius: 50%;
+    border: 1px solid white;
+    width: 46px;
+    height: 46px;
+}
 
 .email_atual{
     font-size: .8em;
     font-family: consolas;
     font-weight: bold;
     position: absolute;
-    top: 55px;
+    top: 51px;
     width: 125px;
-    left: calc(100vw - 47.5vw);
+    left: 80vw;
     overflow: hidden;
-}
-
-.nmobile{
-    border-radius: 50%;
-    border: 1.5px solid white;
-    position: absolute;
-    height: 42px;
-    width: 42px;
-    left: calc(100vw - 40.5vw);
-    top: 30px;
-    transform: translate(-50%, -50%);
+    color: white;
+    display: inline;
 }
 
 /* NAV BAR FIM */
@@ -214,13 +270,6 @@
     height: 60vh;
 }
 
-.next{
-    right: 5%;
-}
-.prev{
-    left: 5%;
-}
-
 .login{
     left: calc(100vw - 130px);
 }
@@ -230,7 +279,8 @@
 }
 
 header{
-    height: 15vh;
+    height: 75px;
+    /* background-color: #0084FF; #5070F5*/
 }
 
 .next{
@@ -241,12 +291,22 @@ header{
 }
 
 .icon-exit{
-    font-size: 1.3em;
+    font-size: 1em;
 }
 
 }
 
 @media only screen and (min-width: 1000px){
+
+.email_atual{
+    display: inline;
+}
+
+.imagem-desktop{
+    width: 100vw;
+    height: 75vh;
+    display: block;
+}
 
 .slider{
     display: none;
@@ -290,7 +350,7 @@ header{
 
 .imagem_atual{
     position: absolute;
-    left: 82.5vw;
+    left: 85vw;
     top: 7px;
 }
 
@@ -308,7 +368,7 @@ header{
     position: absolute;
     top: 51px;
     width: 125px;
-    left: 80vw;
+    left: 82vw;
     overflow: hidden;
     color: white;
 }
@@ -341,60 +401,12 @@ header{
     font-size: 2em;
 }
 
-.slide{
-    height: 90%;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-}
-
-.primeiro{
-    margin-left: 0;
-    width: 30%;
-}
-
-.segundo{
-    width: 50%;
-    right: 50%;
-    transform: translate(50%,-50%);
-}
-
-.terceiro{
-    margin-right: 0;
-    width: 30%;
-    right: 0;
-}
-
-.text-slide{
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-
-.slider{
-    height: 60vh;
-}
-
-.next{
-    right: 5%;
-}
-.prev{
-    left: 5%;
-}
-
 .login{
-    left: calc(100vw - 130px);
+    left: calc(100vw - 150px);
 }
 
 header{
-    height: 11vh;
-}
-
-.next{
-    right: 17%;
-}
-.prev{
-    left: 17%;
+    height: 75px;
 }
 
 }

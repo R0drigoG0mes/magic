@@ -140,7 +140,7 @@ else{
             <li class="outros-btns"><a href="">Inventário &#x1F4E6;</a></li>
     </ul>
 
-    <img src="images/imagem_desktop.png" alt="">
+    <img src="images/imagem_desktop.png" alt="" class="imagem-desktop">
         
     <div class="slider">
 
