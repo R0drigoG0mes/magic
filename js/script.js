@@ -16,6 +16,7 @@ const btnLogin = document.getElementById('chato');
 const email = document.getElementById('email-texto');
 const menu_desktopi = document.getElementById("desktopi");
 const deslogar = document.querySelector('.icon-exit');
+const imagem_user = document.querySelector('.nmobile')
 
 slide_meio.style.opacity = '60%';
 radio1.style = 'background-color: #0077a6; outline: 1px solid #00f4fd;';
@@ -195,16 +196,19 @@ if(logado == 1){
         btnLogin.innerHTML ='Sair<span class="icon-exit"></span>';
         menu.style.display = 'inline';
         menu_desktopi.style.display = 'none';
+        imagem_user.style.display = 'none';
     }
     if(window.screen.width >= 751){
         btnLogin.innerHTML ='<span class="icon-exit"></span>';
         btnLogin.style.left = '95vw';
         menu.style.display = 'none';
         menu_desktopi.style.display = 'inline-block';
+        imagem_user.style.display = 'block';
     }
     btnLogin.href = 'sair.php';
 }
 else{
+    imagem_user.style.display = 'none';
     menu.style.display = 'none';
     menu_desktopi.style.display = 'none';
 }

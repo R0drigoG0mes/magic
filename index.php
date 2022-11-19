@@ -84,6 +84,7 @@ else{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/media.css">
     <link rel="stylesheet" href="icones/style.css">
     <link rel="stylesheet" href="icones/outros_icones/style.css">
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
@@ -137,7 +138,9 @@ else{
             <li class="outros-btns"><a href="">Jogar &#x1F3AE;</a></li>
             <li class="outros-btns meiuca"><a href="">Loja &#x1F6D2;</a></li>
             <li class="outros-btns"><a href="">Inventário &#x1F4E6;</a></li>
-        </ul>
+    </ul>
+
+    <img src="images/imagem_desktop.png" alt="">
         
     <div class="slider">
 

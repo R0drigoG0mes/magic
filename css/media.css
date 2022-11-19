@@ -1,0 +1,400 @@
+@charset "UTF-8";
+
+/* MEDIA FEATURES */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Silkscreen',system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+
+    /*Paleta de Cores*/
+    --1:#00f4fd;
+    --2:#00c2ff;
+    --3:#0077a6;
+    --4:#5b0365;
+    --5:#300147;
+    --6:#20022b;
+
+}
+
+@media only screen and (min-width: 395px){
+    .text-slide{
+        font-size: 1em;
+    }
+}
+
+@media only screen and (min-width: 439px){
+    .text-slide{
+        font-size: 1.1em;
+    }
+}
+
+@media only screen and (min-width: 483px){
+    .text-slide{
+        font-size: 1.2em;
+    }
+}
+
+@media only screen and (min-width: 527px){
+    .text-slide{
+        font-size: 1.3em;
+    }
+}
+
+@media only screen and  (min-width: 512px) and (max-width: 750px){
+    .primeiro,.terceiro{
+        display: none;
+    }
+
+    .slide{
+        width: 100%;
+        height: 90%;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .text-slide{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .segundo{
+        width: 100%;
+    }
+
+    .slide img{
+        border-left: none;
+        border-right: none;
+    }
+
+    .slider{
+        height: 60vh;
+    }
+
+    .next{
+        right: 5%;
+    }
+    .prev{
+        left: 5%;
+    }
+
+    .radios{
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 85%;
+    }
+
+    .radios div{
+        float: right;
+        width: 10px;
+        height: 10px;
+        margin: 0px 5px;
+        border-radius: 50%;
+        background-color: #ccc;
+    }
+}
+
+@media only screen and  (min-width: 751px) and (max-width: 999px){
+
+.icon-menu{
+    display: none!important;
+}
+
+/* NAV BAR  */
+
+.lista-menu-desktop{
+    position: absolute;
+    display: inline-block;
+    left: 30%;
+    z-index: 15;
+    list-style-type: none;
+    height: 10vw;
+    width: 60vw;
+    padding: 3px;
+}
+
+.lista-menu-desktop li{
+    float: left;
+    display: inline;
+}
+
+.lista-menu-desktop li a{
+    text-decoration: none;
+    color: white;
+}
+
+.outros-btns{
+    transform: translate(-10%,50%);
+    margin: 0px 20px 0px 0px;
+    border: 1px solid var(--1);
+    padding: 5px;
+    background-color: var(--4);
+    border-radius: 15px;
+}
+
+
+
+.email_atual{
+    font-size: .8em;
+    font-family: consolas;
+    font-weight: bold;
+    position: absolute;
+    top: 55px;
+    width: 125px;
+    left: calc(100vw - 47.5vw);
+    overflow: hidden;
+}
+
+.nmobile{
+    border-radius: 50%;
+    border: 1.5px solid white;
+    position: absolute;
+    height: 42px;
+    width: 42px;
+    left: calc(100vw - 40.5vw);
+    top: 30px;
+    transform: translate(-50%, -50%);
+}
+
+/* NAV BAR FIM */
+
+.texto-logo1{
+    left: 20px;
+    font-size: 2em;
+}
+
+.logo{
+    left: calc(15px + 2em);
+    width: 50px;
+    height: 70px;
+}
+
+.texto-logo2{
+    left: 70px;
+    font-size: 2em;
+}
+
+.slide{
+    height: 90%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+}
+
+.primeiro{
+    margin-left: 0;
+    width: 30%;
+}
+
+.segundo{
+    width: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+}
+
+.terceiro{
+    margin-right: 0;
+    width: 30%;
+    right: 0;
+}
+
+.text-slide{
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.slider{
+    height: 60vh;
+}
+
+.next{
+    right: 5%;
+}
+.prev{
+    left: 5%;
+}
+
+.login{
+    left: calc(100vw - 130px);
+}
+
+.top-link{
+    font-size: 1.2em;
+}
+
+header{
+    height: 15vh;
+}
+
+.next{
+    right: 17%;
+}
+.prev{
+    left: 17%;
+}
+
+.icon-exit{
+    font-size: 1.3em;
+}
+
+}
+
+@media only screen and (min-width: 1000px){
+
+.slider{
+    display: none;
+}
+
+.icon-exit{
+    font-size: 1.3em;
+}
+
+/* NAV BAR  */
+
+.lista-menu-desktop{
+    display: block;
+    width: 100vw;
+    list-style-type: none;
+    background-color: var(--4);
+    padding: 0px 5px;
+    border-top: 2px solid var(--2);
+    border-bottom: 2px solid var(--2);
+}
+
+.meiuca{
+    margin: 0px 30px;
+}
+
+.lista-menu-desktop li{
+    float: left;
+    display: inline;
+}
+
+.lista-menu-desktop li a{
+    text-decoration: none;
+    color: white;
+}
+
+.outros-btns{
+    padding: 10px 10px 10px 10px;
+    background-color: var(--4);
+}
+
+
+.imagem_atual{
+    position: absolute;
+    left: 82.5vw;
+    top: 7px;
+}
+
+.imagem_atual img{
+    border-radius: 50%;
+    border: 1px solid white;
+    width: 46px;
+    height: 46px;
+}
+
+.email_atual{
+    font-size: .8em;
+    font-family: consolas;
+    font-weight: bold;
+    position: absolute;
+    top: 51px;
+    width: 125px;
+    left: 80vw;
+    overflow: hidden;
+    color: white;
+}
+
+
+/* NAV BAR FIM */
+
+.top-link{
+    font-size: 1.2em;
+}
+
+.icon-menu{
+    display: none!important;
+}
+
+
+.texto-logo1{
+    left: 20px;
+    font-size: 2em;
+}
+
+.logo{
+    left: calc(15px + 2em);
+    width: 50px;
+    height: 70px;
+}
+
+.texto-logo2{
+    left: 70px;
+    font-size: 2em;
+}
+
+.slide{
+    height: 90%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+}
+
+.primeiro{
+    margin-left: 0;
+    width: 30%;
+}
+
+.segundo{
+    width: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+}
+
+.terceiro{
+    margin-right: 0;
+    width: 30%;
+    right: 0;
+}
+
+.text-slide{
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.slider{
+    height: 60vh;
+}
+
+.next{
+    right: 5%;
+}
+.prev{
+    left: 5%;
+}
+
+.login{
+    left: calc(100vw - 130px);
+}
+
+header{
+    height: 11vh;
+}
+
+.next{
+    right: 17%;
+}
+.prev{
+    left: 17%;
+}
+
+}
