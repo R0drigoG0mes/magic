@@ -108,12 +108,12 @@ else{
 </head>
 <body>
     <header>
-        <ul class="lista-menu-desktop" id="desktopi">
-            <li class="outros-btns"><a href="">Jogar &#x1F3AE;</a></li>
-            <li class="outros-btns"><a href="">Loja &#x1F6D2;</a></li>
-            <li class="outros-btns"><a href="">Inventário &#x1F4E6;</a></li>
-            <li><a href="perfil.php" class="email_atual"><?php echo $_SESSION['email']; ?></a><a href="perfil.php"><img class="nmobile" src="images/retratos/<?php echo $_SESSION['retrato'];?>.png" alt=""></a></li>
-        </ul>
+        <!-- POSITION ABSOLUTE -->
+
+       <a href="perfil.php" class="imagem_atual"><img class="nmobile" src="images/retratos/<?php if(isset($_SESSION['retrato'])){echo $_SESSION['retrato'];} ?>.png" alt=""></a>
+
+       <a href="perfil.php" class="email_atual"><?php if(isset($_SESSION['email'])){echo $_SESSION['email'];} ?></a>
+
         <ul class="lista-menu">
             <span class="icon-cross icones"></span>
             <li><a href="" class="top-link hamburguer">Jogar &#x1F3AE;</a></li>
@@ -123,6 +123,7 @@ else{
             <li><a href="perfil.php"><img class="perfil-mobile" src="images/retratos/<?php echo $_SESSION['retrato'];?>.png" alt=""></a></li>
             <li><a href="perfil.php" class="apelido"><?php echo $_SESSION['apelido']; ?></a></li>
         </ul>
+        <!-- POSITION ABSOLUTE -->
         <p class="texto-logo1">Mag</p>
         <img src="images/favicon.png" alt="" class="logo">
         <p class="texto-logo2">Cia</p>
@@ -131,6 +132,13 @@ else{
             <a href="login_estrutura.php" class="top-link btn-nav login" id="chato">Login<span class="icon-enter" style="font-size: .8em;"></span></a>
         </nav>
     </header>
+
+    <ul class="lista-menu-desktop" id="desktopi">
+            <li class="outros-btns"><a href="">Jogar &#x1F3AE;</a></li>
+            <li class="outros-btns meiuca"><a href="">Loja &#x1F6D2;</a></li>
+            <li class="outros-btns"><a href="">Inventário &#x1F4E6;</a></li>
+        </ul>
+        
     <div class="slider">
 
         <span class="icon-circle-right next"></span>

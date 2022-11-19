@@ -17,7 +17,6 @@ const email = document.getElementById('email-texto');
 const menu_desktopi = document.getElementById("desktopi");
 const deslogar = document.querySelector('.icon-exit');
 
-
 slide_meio.style.opacity = '60%';
 radio1.style = 'background-color: #0077a6; outline: 1px solid #00f4fd;';
 

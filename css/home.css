@@ -540,14 +540,15 @@ header{
 /* NAV BAR  */
 
 .lista-menu-desktop{
-    position: absolute;
-    display: inline-block;
-    left: 30%;
-    z-index: 15;
+    display: block;
+    width: 100vw;
     list-style-type: none;
-    height: 10vw;
-    width: 60vw;
-    padding: 3px;
+    background-color: var(--4);
+    padding: 0px 5px;
+}
+
+.meiuca{
+    margin: 0px 30px;
 }
 
 .lista-menu-desktop li{
@@ -561,37 +562,36 @@ header{
 }
 
 .outros-btns{
-    transform: translateY(50%);
-    margin: 0px 20px 0px 20px;
-    border: 1px solid var(--1);
-    padding: 5px;
+    padding: 10px 10px 10px 10px;
     background-color: var(--4);
-    border-radius: 15px;
 }
 
 
+.imagem_atual{
+    position: absolute;
+    left: 82vw;
+    top: 7px;
+}
+
+.imagem_atual img{
+    border-radius: 50%;
+    border: 1px solid white;
+    width: 56px;
+    height: 56px;
+}
 
 .email_atual{
-    font-size: .8em;
+    font-size: .9em;
     font-family: consolas;
     font-weight: bold;
     position: absolute;
-    top: 65px;
+    top: 67px;
     width: 125px;
-    left: calc(100vw - 47.5vw);
+    left: 80vw;
     overflow: hidden;
+    color: white;
 }
 
-.nmobile{
-    border-radius: 50%;
-    border: 1.5px solid white;
-    position: absolute;
-    height: 42px;
-    width: 42px;
-    left: calc(100vw - 42.5vw);
-    top: 40px;
-    transform: translate(-50%, -50%);
-}
 
 /* NAV BAR FIM */
 
